@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!-- Template by Quackit.com -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+
+    <!-- jQuery -->
+    <script src="lib/js/jquery-1.11.3.min.js"></script>
+
+    <!-- Custom script -->
+    <script src="js/main.js"></script>
+    <script src="lib/js/FileSaver.min.js"></script>
+    <script src="lib/js/toc.js"></script>
+    <script src="js/isay.js"></script>
+    <script src="js/sbname.js"></script>
+
+    <title>I Say!</title>
+
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+      <!-- Navigation -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <!-- Logo and responsive toggle -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://github.com/Silverfeelin/">
+              <i class="fa fa-github"></i>
+              <span>Silverfeelin</span>
+            </a>
+          </div>
+
+          <!-- Navbar links -->
+          <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav">
+              <!-- li class="active" -->
+              <li><a href="https://github.com/Silverfeelin/Starbound-Hatter">View project on GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div id="featureBackground">
+        <div id="feature" class="jumbotron feature">
+          <div class="container">
+            <h1><i class="fa fa-comments"></i> I Say!</h1>
+            <p>Multiplayer compatible text particles!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="container">
+        <div class="row">
+          <div class="alert alert-warning">
+            • If you choose to generate a /spawnitem command, please note that this command will only work in singleplayer, or with /admin mode enabled.<br>
+            • Special thanks to <a href="http://ilovebacons.com/members/lachee.10/">Lachee</a> and <a href="http://ilovebacons.com/members/magicks.3951/">Magicks</a> for the idea and templates.
+          </div>
+        </div>
+        
+        <div class="row">
+          <h3 class="content-header">Configuration</h3>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="text">Text:</label>
+              <textarea id="text" class="textInput form-control">^orange;Hello World!</textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12"><h4>Item Details</h4></div>
+          <div class="col-md-6">
+            
+            <label for="title">Title:</label>
+            <input id="title" type="text" class="form-control" value="My Text Item">
+            <label for="subtitle">Subtitle:</label>
+            <input id="subtitle" type="text" class="form-control" value="^orange;Text Particles^reset;">
+            <label for="description">Description:</label>
+            <input id="description" type="text" class="form-control" value="This item belongs to me.">
+            
+            <label for="icon">Icon:</label>
+            <select id="icon" class="form-control">
+              <option selected value="/particles/huh/1.png">Chat Balloon</option>
+              <option value="/humanoid/human/frontarm.png:rotation">Arm</option>
+            </select>
+            <br>
+            <label for="twoHanded">Two Handed:</label>
+            <input id="twoHanded" type="checkbox">
+          </div>
+          <div class="col-md-3">
+            <label for="rarity">Rarity:</label>
+            <select id="rarity" class="form-control">
+              <option value="common">Common</option>
+              <option value="uncommon">Uncommon</option>
+              <option value="rare">Rare</option>
+              <option selected value="legendary">Legendary</option>
+              <option value="essential">Essential</option>
+            </select>
+            <label for="maxStack">Max Stack:</label>
+            <input id="maxStack" type="number" class="form-control" value="1" min="0" max="1000" step="1">
+            <label for="price">Price:</label>
+            <input id="price" type="number" class="form-control" value="1000" min="0" step="1">
+            <label for="fireSound">Sound:</label>
+            <input id="fireSound" type="text" class="form-control" value="/sfx/melee/blunt_hit_organic.ogg">
+          </div>
+          <div class="col-md-3">
+            <label for="fireTime">Fire Time:</label>
+            <input id="fireTime" type="number" class="form-control" value="0.2" min="0" step="0.1">
+            <label for="inaccuracy">Inaccuracy:</label>
+            <input id="inaccuracy" type="number" class="form-control" value="0.2" min="0" step="0.1">
+            <label for="fireType">Fire Type:</label>
+            <select id="fireType" class="form-control">
+              <option selected value="auto">Automatic</option>
+              <option value="burst">Burst</option>
+            </select>
+            <label for="burstCount">Burst Count:</label>
+            <input id="burstCount" type="number" class="form-control" value="3" min="1" step="1">
+            <label for="burstTime">Burst Time:</label>
+            <input id="burstTime" type="number" class="form-control" value="0.1" min="0" step="0.1">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12"><h4>Projectile Details</h4></div>
+          <div class="col-md-4">
+            <label for="textSize">Text Size:</label>
+            <input id="textSize" type="number" class="form-control" value="1" min="0" step="0.1">
+            <label for="textDuration">Text Duration:</label>
+            <input id="textDuration" type="number" class="form-control" value="0.4" min="0" step="0.1">
+            <label for="destructionAction">Destruction Action:</label>
+            <select id="destructionAction" class="form-control">
+              <option value="none">None</option>
+              <option selected value="fade">Fade out</option>
+              <option value="shrink">Shrink</option>
+            </select>
+            <label for="destructionDuration">Destruction Duration:</label>
+            <input id="destructionDuration" type="number" class="form-control" value="0.8">
+          </div>
+          <div class="col-md-4">
+            <label for="horizontalOffset">Horizontal Offset:</label>
+            <input id="horizontalOffset" type="number" class="form-control" value="0" step="0.125">
+            <label for="verticalOffset">Vertical Offset:</label>
+            <input id="verticalOffset" type="number" class="form-control" value="0" step="0.125">
+            <label for="horizontalVelocity">Horizontal Velocity:</label>
+            <input id="horizontalVelocity" type="number" class="form-control" value="0" step="0.1">
+            <label for="verticalVelocity">Vertical Velocity:</label>
+            <input id="verticalVelocity" type="number" class="form-control" value="0" step="0.1">
+          </div>
+          <div class="col-md-4">
+            <label for="horizontalOffsetVariance">Horizontal Offset Variance:</label>
+            <input id="horizontalOffsetVariance" type="number" class="form-control" value="0" step="0.125">
+            <label for="verticalOffsetVariance">Vertical Offset Variance:</label>
+            <input id="verticalOffsetVariance" type="number" class="form-control" value="0" step="0.125">
+            <label for="horizontalVelocityVariance">Horizontal Velocity Variance:</label>
+            <input id="horizontalVelocityVariance" type="number" class="form-control" value="0.1" step="0.1">
+            <label for="verticalVelocityVariance">Vertical Velocity Variance:</label>
+            <input id="verticalVelocityVariance" type="number" class="form-control" value="0.2" step="0.1">
+          </div>
+        </div>
+        <div class="row">
+          <h3 class="content-header">Output</h3>
+          <div class="col-lg-12" style="min-height:45px;">
+            <div class="hobo" id="htmlOutput"></div>
+          </div>
+          <div class="col-lg-12">
+            <div class="form-group">
+              <textarea id="output" class="form-control textInput" wrap="soft"></textarea>
+              <br>
+              <button id="btnExport" class="btn btn-success">Generate Item File</button>
+              <button id="btnExportCommand" class="btn btn-success">Generate Command File</button>
+              <button id="btnText" class="btn btn-info">Generate Text</button>
+              <button id="btnTextCommand" class="btn btn-info">Generate Text Command</button>
+              <button class="btn btn-info btnCopy" data-clipboard-action="copy" data-clipboard-target="#output">Copy to Clipboard</button><br>Copying to clipboard may not work on all browsers. You might have to use Ctrl+C or ⌘+C instead.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="col-lg-12 small-print">
+        <div class="container">
+          <p><a href="http://playstarbound.com/">Official Starbound site</a></p>
+          <hr>
+          <div>
+            <p style="float:left;"><a href="/credits.html">Credits and Licenses</a></p>
+            <p style="float:right;">Contact me: <a href="mailto:admin@silvermods.com">admin@silvermods.com</a> | <a href="http://community.playstarbound.com/conversations/add?to=errors4l">PlayStarbound</a> | <a href="http://ilovebacons.com/conversations/add?to=silverfeelin">ILB</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="lib/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Font Awesome CSS -->
+    <link href="lib/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="lib/js/bootstrap.min.js"></script>
+    
+    <!-- Clipboard.js Javascript -->
+    <script src="lib/js/clipboard.js"></script>
+
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link href="css/custom.css?v=1.1" rel="stylesheet">
+    <link href="lib/css/font.css" rel="stylesheet">
+  </body>
+</html>
